@@ -2,8 +2,8 @@ from openerp import models,fields
 class concessionari_mecanic(models.Model):
 	#Needed add codi with serial_number at this line
 	_name='concessionari.mecanic'
-	codi = fields.Integer('codi')
-	nom=fields.Char('Nombre',size=50,required=True)
+	codi = fields.Integer('codi',required=True)
+	nom=fields.Char('Nombre',size=50)
 	cognom=fields.Char('Cognoms',size=50)
 	telefon=fields.Integer('Telefono',size=9)
 	#the rec_name should be 'codi' with serial number sequence
@@ -28,4 +28,9 @@ class concessionari_compra(models.Model):
 	data=fields.Date('Fecha de compra')
 	_rec_name='data'
 class concessionari_client(models.Model):
-	codi = fields
+	codi = fields.Integer('codi')
+	nom =fields.Char('Nombre',size=30)
+	cognoms =fields.Char('Cognom',size=50)
+	telefon = fields.Char('Telefon',size=9)
+	venedor =fields.Many2one('concessionari.venedor','Venedors',ondelete='cascade')
+
