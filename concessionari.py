@@ -23,14 +23,21 @@ class concessionari_cotxe(models.Model):
 	preu = fields.float('Preu')
 	km = fields.Integer('km')
 class concessionari_compra(models.Model):
+	_name = 'concessionari.compra'
 	client = fields.Many2one('concessionari.client','Compras',ondelete='cascade')
 	cotxe  = fields.Many2one('concessionari.client','Compras',ondelete='cascade')
 	data=fields.Date('Fecha de compra')
 	_rec_name='data'
 class concessionari_client(models.Model):
-	codi = fields.Integer('codi')
+	_name = 'concessionari.client'
+	codi = fields.Integer('Codi')
 	nom =fields.Char('Nombre',size=30)
 	cognoms =fields.Char('Cognom',size=50)
 	telefon = fields.Char('Telefon',size=9)
 	venedor =fields.Many2one('concessionari.venedor','Venedors',ondelete='cascade')
-
+class concessionari_venedor(models.Model):
+	_name = 'concessionari.client'
+	codi = fields.Integer('Codi')
+	nom = fields.Char('Nom',size=30)
+	cognoms = fields.Char('Cognom',size=50)
+	telefon = fields.Char('Telefon',size=9)
