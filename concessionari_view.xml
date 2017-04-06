@@ -1,3 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<openerp>
+		<data>
+<!-- menu padre-->
+<menuitem name="Taller" id="main_menu_taller"/>
+<!-- menus propietarios-->
+<menuitem name="Propietarios" id="menu_mecanic" action="concessionari.mecanic_action_submain_mecanics" parent="main_menu_taller"/>
+<menuitem name="Lista Propietario" id="menu_lista_propietario" action="concessionari.mecanic_action_llista" parent="menu_propietarios"/>
+<!--Se define la vista formulario de mecanico-->
+<record id="concessionari.mecanic_form" model="ir.ui.view">
+<field name="name">concessionari.mecanic.form</field>
+<field name="model">concessionari.mecanic</field>
+<field name="type">form</field>
+<field name="arch" type="xml">
+<form>
+<sheet>
+<group>
+<field name="codi"/>
+<field name="nom"/>
+<field name="cognom"/>
+<field name="telefon"/>
+</group>
+ </sheet>
+</form>
+</field></record>
+<!--Se define la vista lista de propietario-->
+<record id="taller.propietari_tree" model="ir.ui.view">
+<field name="name">taller.propietari.tree</field>
+<field name="model">taller.propietari</field>
+<field name="type">tree</field>
+<field name="arch" type="xml">
+<tree>
+<field name="codi"/>
+<field name="nom"/>
+<field name="cognom"/>
+<field name="telefon"/>
+</tree>
+</field></record>
+
+
+
 <template id="MYSITE_layout" inherit_id="website.layout" name="MYSITE layout" priority="17">
     <xpath expr="//head//link" position="after">
         <link rel="shortcut icon" href="/MYSITE_web/static/src/img/favicon.ico" type="image/x-icon"/>
