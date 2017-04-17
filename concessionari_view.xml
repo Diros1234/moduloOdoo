@@ -4,7 +4,7 @@
 <!-- menu padre-->
 <menuitem name="Concessionari" id="main_menu_taller"/>
 <!-- menus mecanic-->
-<menuitem name="Propietarios" id="menu_mecanic" action="concessionari.mecanic_action_submain_mecanics" parent="main_menu_taller"/>
+<menuitem name="Mecanics" id="menu_mecanic" action="concessionari.mecanic_action_submain_mecanics" parent="main_menu_taller"/>
 <menuitem name="Lista mecanic" id="menu_lista_mecanic" action="concessionari.mecanic_action_llista" parent="menu_mecanic"/>
 <!--Se define la vista formulario de mecanico-->
 <record id="concessionari.mecanic_form" model="ir.ui.view">
@@ -24,7 +24,7 @@
 </form>
 </field></record>
 <!--Se define la vista lista de mecanic-->
-<record id="taller.propietari_tree" model="ir.ui.view">
+<record id="concessionari.mecanic_tree" model="ir.ui.view">
 <field name="name">concessionari.mecanic.tree</field>
 <field name="model">concessionari.mecanic</field>
 <field name="type">tree</field>
@@ -36,8 +36,28 @@
 <field name="telefon"/>
 </tree>
 </field></record>
-
-
+<!--Se define la vista de formulario de revisiones -->
+<record id="concessionari.revisio_form" model="ir.ui.view">
+<field name="name">concessionari.revisio.form</field>
+<field name="model">concessionari.revisio</field>
+<field name="type">form</field>
+	<field name="arch" type="xml">
+		<form>
+			<field name="data_revisio"/>
+		</form>
+	</field>
+</record>
+<!--Se define la vista lista de revisiones -->
+<record id="concessionari.revisio_tree model="ir.ui.view">
+<field name="name">concessionari.revisio.tree</field>
+<field name="model">concessionari.revisio</field>
+<field name="type">tree</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="data_revisio"/>
+		</tree>
+	</field>
+</record>
 
 <template id="MYSITE_layout" inherit_id="website.layout" name="MYSITE layout" priority="17">
     <xpath expr="//head//link" position="after">
