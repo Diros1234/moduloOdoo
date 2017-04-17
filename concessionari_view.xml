@@ -2,10 +2,10 @@
 	<openerp>
 		<data>
 <!-- menu padre-->
-<menuitem name="Taller" id="main_menu_taller"/>
-<!-- menus propietarios-->
+<menuitem name="Concessionari" id="main_menu_taller"/>
+<!-- menus mecanic-->
 <menuitem name="Propietarios" id="menu_mecanic" action="concessionari.mecanic_action_submain_mecanics" parent="main_menu_taller"/>
-<menuitem name="Lista Propietario" id="menu_lista_propietario" action="concessionari.mecanic_action_llista" parent="menu_propietarios"/>
+<menuitem name="Lista mecanic" id="menu_lista_mecanic" action="concessionari.mecanic_action_llista" parent="menu_mecanic"/>
 <!--Se define la vista formulario de mecanico-->
 <record id="concessionari.mecanic_form" model="ir.ui.view">
 <field name="name">concessionari.mecanic.form</field>
@@ -23,10 +23,10 @@
  </sheet>
 </form>
 </field></record>
-<!--Se define la vista lista de propietario-->
+<!--Se define la vista lista de mecanic-->
 <record id="taller.propietari_tree" model="ir.ui.view">
-<field name="name">taller.propietari.tree</field>
-<field name="model">taller.propietari</field>
+<field name="name">concessionari.mecanic.tree</field>
+<field name="model">concessionari.mecanic</field>
 <field name="type">tree</field>
 <field name="arch" type="xml">
 <tree>
