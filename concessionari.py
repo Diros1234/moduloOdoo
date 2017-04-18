@@ -20,7 +20,7 @@ class concessionari_cotxe(models.Model):
 	marca = fields.Char('Marca',size=20)
 	model = fields.Char('Modelo',size=20)
 	nou = fields.Boolean('Nou?')
-	preu = fields.float('Preu')
+	preu = fields.Float('Preu')
 	km = fields.Integer('km')
 class concessionari_compra(models.Model):
 	_name = 'concessionari.compra'
@@ -36,7 +36,7 @@ class concessionari_client(models.Model):
 	telefon = fields.Char('Telefon',size=9)
 	venedor =fields.Many2one('concessionari.venedor','Venedors',ondelete='cascade')
 class concessionari_venedor(models.Model):
-	_name = 'concessionari.client'
+	_name = 'concessionari.venedor'
 	codi = fields.Integer('Codi')
 	nom = fields.Char('Nom',size=30)
 	cognoms = fields.Char('Cognom',size=50)

@@ -1,66 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<openerp>
-		<data>
-<!-- menu padre-->
-<menuitem name="Concessionari" id="main_menu_taller"/>
-<!-- menus mecanic-->
-<menuitem name="Mecanics" id="menu_mecanic" action="concessionari.mecanic_action_submain_mecanics" parent="main_menu_taller"/>
-<menuitem name="Lista mecanic" id="menu_lista_mecanic" action="concessionari.mecanic_action_llista" parent="menu_mecanic"/>
-<!--Se define la vista formulario de mecanico-->
-<record id="concessionari.mecanic_form" model="ir.ui.view">
-<field name="name">concessionari.mecanic.form</field>
-<field name="model">concessionari.mecanic</field>
-<field name="type">form</field>
-<field name="arch" type="xml">
-<form>
-<sheet>
-<group>
-<field name="codi"/>
-<field name="nom"/>
-<field name="cognom"/>
-<field name="telefon"/>
-</group>
- </sheet>
-</form>
-</field></record>
+<openerp>
+	<data>
+		<!--ACCIONES DE VENTANA -->
+		<act_window
+			id="concessionari.action_ventana_mecanic"
+			name="Mecanics"
+			res_model="concessionari.mecanic"
+			view_mode="tree,form"
+		/>
+		<act_window
+			id="concessionari.action_ventana_cotxe"
+			name="Cotxes"
+			res_model="concessionari.cotxe"
+			view_mode="tree,form"
+		/>
+		<!-- menu padre-->
+		<menuitem name="Concessionari" id="main_menu_taller"/>
+		<!-- menus mecanic-->
+		<menuitem name="Mecanics" id="menu_mecanic" action="concessionari.action_ventana_mecanic" parent="main_menu_taller"/>
+		<menuitem name="Lista mecanics" id="menu_lista_mecanic" action="concessionari.action_ventana_mecanic" parent="menu_mecanic"/>
+		<!-- menus cotxe-->
+		<menuitem name="Cotxes" id="menu_cotxe" action="concessionari.action_ventana_cotxe" parent="main_menu_taller"/>
+		<menuitem name="Lista cotxe" id="menu_lista_cotxe" action="concessionari.action_ventana_cotxe" parent="menu_cotxe"/>		
+		<!--Se define la vista formulario de mecanico-->
+		<record id="concessionari.mecanic_form" model="ir.ui.view">
+		<field name="name">concessionari.mecanic.form</field>
+		<field name="model">concessionari.mecanic</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+		<form>
+			<sheet>
+			<group>
+				<field name="codi"/>
+				<field name="nom"/>
+				<field name="cognom"/>
+				<field name="telefon"/>
+			</group>
+			</sheet>
+		</form>
+		</field>
+		</record>
+
 <!--Se define la vista lista de mecanic-->
 <record id="concessionari.mecanic_tree" model="ir.ui.view">
 <field name="name">concessionari.mecanic.tree</field>
 <field name="model">concessionari.mecanic</field>
 <field name="type">tree</field>
 <field name="arch" type="xml">
-<tree>
-<field name="codi"/>
-<field name="nom"/>
-<field name="cognom"/>
-<field name="telefon"/>
-</tree>
-</field></record>
-<!--Se define la vista de formulario de revisiones -->
-<record id="concessionari.revisio_form" model="ir.ui.view">
-<field name="name">concessionari.revisio.form</field>
-<field name="model">concessionari.revisio</field>
-<field name="type">form</field>
+	<tree>
+		<field name="codi"/>
+		<field name="nom"/>
+		<field name="cognom"/>
+		<field name="telefon"/>
+	</tree>
+</field>
+</record>
+
+<record id="concessionari.cotxe_form" model="ir.ui.view">
+	<field name="name">concessionari.cotxe.form</field>
+	<field name="model">concessionari.cotxe</field>	
+	<field name="type">form</field>
 	<field name="arch" type="xml">
 		<form>
-			<field name="data_revisio"/>
+			<sheet>
+				<group>
+					<field name="matricula"/>
+					<field name="marca"/>
+					<field name="model"/>
+					<field name="nou"/>
+					<field name="preu"/>
+					<field name="km"/>
+				</group>
+			</sheet>
 		</form>
 	</field>
 </record>
-<!--Se define la vista lista de revisiones -->
-<record id="concessionari.revisio_tree model="ir.ui.view">
-<field name="name">concessionari.revisio.tree</field>
-<field name="model">concessionari.revisio</field>
-<field name="type">tree</field>
-	<field name="arch" type="xml">
-		<tree>
-			<field name="data_revisio"/>
-		</tree>
-	</field>
+
+<record id="concessionari.cotxe_tree" model="ir.ui.view">
+	<field name="name">concessionari.cotxe.tree</field>
+	<field name="model">concessionari.cotxe</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <tree>
+			<field name="matricula"/>
+			<field name="marca"/>
+			<field name="model"/>
+			<field name="nou"/>
+			<field name="preu"/>
+			<field name="km"/>
+                </tree>
+        </field>
 </record>
 
-<template id="MYSITE_layout" inherit_id="website.layout" name="MYSITE layout" priority="17">
-    <xpath expr="//head//link" position="after">
-        <link rel="shortcut icon" href="/MYSITE_web/static/src/img/favicon.ico" type="image/x-icon"/>
-    </xpath>
-</template>
+
+</data>
+</openerp>
+
+
+
