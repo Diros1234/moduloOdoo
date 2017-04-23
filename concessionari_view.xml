@@ -12,7 +12,25 @@
 			id="concessionari.action_ventana_cotxe"
 			name="Cotxes"
 			res_model="concessionari.cotxe"
-			view_mode="tree,form"
+			view_mode="tree,form,search"
+		/>
+		<act_window
+            id="concessionari.action_ventana_compra"
+            name="Compras"
+            res_model="concessionari.compra"
+            view_mode="tree,form"
+         />
+		<act_window
+			id="concessionari.action_ventana_client"
+            name="Clientes"
+            res_model="concessionari.client"
+            view_mode="tree,form"
+		/>
+		<act_window
+			id="concessionari.action_ventana_venedor"
+            name="Venedors"
+            res_model="concessionari.venedor"
+            view_mode="tree,form"
 		/>
 		<!-- menu padre-->
 		<menuitem name="Concessionari" id="main_menu_taller"/>
@@ -22,6 +40,15 @@
 		<!-- menus cotxe-->
 		<menuitem name="Cotxes" id="menu_cotxe" action="concessionari.action_ventana_cotxe" parent="main_menu_taller"/>
 		<menuitem name="Lista cotxe" id="menu_lista_cotxe" action="concessionari.action_ventana_cotxe" parent="menu_cotxe"/>		
+		<!-- menus compras-->
+        <menuitem name="Compras" id="menu_compra" action="concessionari.action_ventana_compra" parent="main_menu_taller"/>
+        <menuitem name="Lista compras" id="menu_lista_compra" action="concessionari.action_ventana_compra" parent="menu_compra"/>
+        <!-- menus cliente-->
+        <menuitem name="Clientes" id="menu_cliente" action="concessionari.action_ventana_client" parent="main_menu_taller"/>
+		<menuitem name="Lista clients" id="menu_lista_client" action="concessionari.action_ventana_client" parent="menu_cliente"/>
+		<!-- menus venedor-->
+		<menuitem name="Venedors" id="menu_venedor" action="concessionari.action_ventana_venedor" parent="main_menu_taller"/>
+		<menuitem name="Lista venedor" id="menu_lista_venedor" action="concessionari.action_ventana_venedor" parent="menu_venedor"/>
 		<!--Se define la vista formulario de mecanico-->
 		<record id="concessionari.mecanic_form" model="ir.ui.view">
 		<field name="name">concessionari.mecanic.form</field>
@@ -55,7 +82,7 @@
 	</tree>
 </field>
 </record>
-
+<!--FORM COTXE-->
 <record id="concessionari.cotxe_form" model="ir.ui.view">
 	<field name="name">concessionari.cotxe.form</field>
 	<field name="model">concessionari.cotxe</field>	
@@ -75,7 +102,7 @@
 		</form>
 	</field>
 </record>
-
+<!--TREE COTXE-->
 <record id="concessionari.cotxe_tree" model="ir.ui.view">
 	<field name="name">concessionari.cotxe.tree</field>
 	<field name="model">concessionari.cotxe</field>
@@ -91,10 +118,113 @@
                 </tree>
         </field>
 </record>
-
-
+<!--SEARCH COTXE-->
+<record id="concessionari.cotxe_search" model="ir.ui.view">
+	<field name="name">concessionari.cotxe.search</field>
+	<field name="model">concessionari.cotxe</field>	
+	<field name="arch" type="xml">
+	<search>
+		<field name="km"/>
+		<filter string="menos de 10000" domain="[('km','&lt;=','10000')]"/>
+		<filter string="mas de 10000" domain="[('km','&gt;=','10000')]"/>
+	</search>
+	</field>
+</record>
+<!--FORM COMPRA-->
+<record id="concessionari.compra_form" model="ir.ui.view">
+        <field name="name">concessionari.compra.form</field>
+        <field name="model">concessionari.compra</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                                <group>
+                                        <field name="data"/>
+                                        <field name="client"/>
+                                        <field name="cotxe"/>
+				 </group>
+                        </sheet>
+                </form>
+        </field>
+</record>
+<!--TREE COMPRA-->
+<record id="concessionari.compra_tree" model="ir.ui.view">
+        <field name="name">concessionari.compra.tree</field>
+        <field name="model">concessionari.compra</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <tree>
+			<field name="data"/>
+			<field name="client"/>
+			<field name="cotxe"/>
+                </tree>
+        </field>
+</record>
+<!--FORM CLIENT-->
+<record id="concessionari.client_form" model="ir.ui.view">
+        <field name="name">concessionari.client.form</field>
+        <field name="model">concessionari.client</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                                <group>
+                                        <field name="codi"/>
+                                        <field name="nom"/>
+                                        <field name="cognoms"/>
+                                        <field name="telefon"/>
+                                        <field name="venedor"/>
+				 				</group>
+                        </sheet>
+                </form>
+        </field>
+</record>
+<!--TREE CLIENT-->
+<record id="concessionari.client_tree" model="ir.ui.view">
+        <field name="name">concessionari.client.tree</field>
+        <field name="model">concessionari.client</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <tree>
+					<field name="codi"/>
+                    <field name="nom"/>
+                    <field name="cognoms"/>
+                    <field name="telefon"/>
+                    <field name="venedor"/>
+                </tree>
+        </field>
+</record>
+<!--FORM VENEDOR-->
+<record id="concessionari.venedor_form" model="ir.ui.view">
+        <field name="name">concessionari.venedor.form</field>
+        <field name="model">concessionari.venedor</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                                <group>
+                                        <field name="codi"/>
+                                        <field name="nom"/>
+                                        <field name="cognoms"/>
+                                        <field name="telefon"/>
+				 				</group>
+                        </sheet>
+                </form>
+        </field>
+</record>
+<!--TREE VENEDOR-->
+<record id="concessionari.venedor_tree" model="ir.ui.view">
+        <field name="name">concessionari.venedor.tree</field>
+        <field name="model">concessionari.venedor</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <tree>
+					<field name="codi"/>
+                    <field name="nom"/>
+                    <field name="cognoms"/>
+                    <field name="telefon"/>
+                </tree>
+        </field>
+</record>
 </data>
 </openerp>
-
-
-
