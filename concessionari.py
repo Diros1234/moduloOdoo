@@ -14,6 +14,7 @@ class concessionari_revisio(models.Model):
 	#Make table 'Revisions' that contains primary key of 'class mecanic' and 'class cotxe'
 	mecanic=fields.Many2one('concessionari.mecanic','Revisions',ondelete='cascade')
 	cotxe=fields.Many2one('concessionari.cotxe','Revisions',ondelete='cascade')
+	_rec_name='data_revisio'
 class concessionari_cotxe(models.Model):
 	_name='concessionari.cotxe'
 	matricula = fields.Char('Matricula',size=7)
@@ -23,8 +24,7 @@ class concessionari_cotxe(models.Model):
 	preu = fields.Float('Preu')
 	km = fields.Integer('km')
 	def devolverMatricula(self):
-		for record in self:
-			return 'Matricula : '+record.matricula+' Marca : '+record.marca+ ' Modelo : '+record.model
+		return 'Matricula : '+matricula+' Marca : '+marca+ ' Modelo : '+model
 	cotxeConcat = fields.Char('cotxeConcat',compute='devolverMatricula')
 	_rec_name = 'cotxeConcat'
 class concessionari_compra(models.Model):

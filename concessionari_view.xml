@@ -18,7 +18,7 @@
             id="concessionari.action_ventana_compra"
             name="Compras"
             res_model="concessionari.compra"
-            view_mode="tree,form"
+            view_mode="tree,form,calendar"
          />
 		<act_window
 			id="concessionari.action_ventana_client"
@@ -96,7 +96,7 @@
 					<field name="model"/>
 					<field name="nou"/>
 					<field name="preu"/>
-					<field name="km"/>
+					<field name="km" attrs="{'invisible': [('nou','=',True)]}"/>
 				</group>
 			</sheet>
 		</form>
@@ -159,6 +159,18 @@
 			<field name="cotxe"/>
                 </tree>
         </field>
+</record>
+<!-- CALENDAR COMPRA -->
+<record id="view_calendar_taller" model="ir.ui.view">
+    <field name="name">view_calendar_compra</field>
+    <field name="model">concessionari.compra</field>
+    <field name="arch" type="xml">
+        <calendar date_start="data"  date_stop="data">
+		<field name="data"/>
+		<field name="client"/>
+		<field name="cotxe"/>
+        </calendar>
+    </field>
 </record>
 <!--FORM CLIENT-->
 <record id="concessionari.client_form" model="ir.ui.view">
