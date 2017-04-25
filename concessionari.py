@@ -27,8 +27,8 @@ class concessionari_cotxe(models.Model):
 		for record in self:
 			if record.nou==True:
 				record.colorKanban=2
-                        elif record.nou==False:
-                               record.colorKanban=4
+			elif record.nou==False:
+				record.colorKanban=4
         colorKanban=fields.Integer('Color Index',compute='change_color')
 class concessionari_compra(models.Model):
 	_name = 'concessionari.compra'
