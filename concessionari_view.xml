@@ -12,7 +12,7 @@
 			id="concessionari.action_ventana_cotxe"
 			name="Cotxes"
 			res_model="concessionari.cotxe"
-			view_mode="tree,form,search,graph"
+			view_mode="tree,form,search"
 		/>
 		<act_window
 	            	id="concessionari.action_ventana_compra"
@@ -138,19 +138,6 @@
 		<filter string="mas de 10000" domain="[('km','&gt;=','10000')]"/>
 	</search>
 	</field>
-</record>
-<!-- GRAPH COTXE -->
-<record id="view_graph_taller" model="ir.ui.view">
-    <field name="name">view_graph_concessionari</field>
-    <field name="model">concessionari.cotxe</field>
-    <field name="arch" type="xml">
-        <graph type="pivot">
-        <field name="matricula" type="col" />
-		<field name="client"/>
-		<field name="data_revisio" interval="month"/>
-		<field name="cotxe" type="mesure"/>
-        </graph>
-    </field>
 </record>
 <!--FORM COMPRA-->
 <record id="concessionari.compra_form" model="ir.ui.view">
@@ -293,6 +280,19 @@
         </field>
 </record>
 
+<!-- GRAPH REVISIO -->
+<record id="view_graph_taller" model="ir.ui.view">
+    <field name="name">view_graph_concessionari</field>
+    <field name="model">concessionari.cotxe</field>
+    <field name="arch" type="xml">
+        <graph type="pivot">
+        <field name="cotxe" type="col" />
+                <field name="client"/>
+                <field name="data_revisio" interval="month"/>
+                <field name="cotxe" type="mesure"/>
+        </graph>
+    </field>
+</record>
 
 </data>
 </openerp>
