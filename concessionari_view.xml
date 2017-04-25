@@ -151,6 +151,7 @@
                         <field name="nou"/>
                         <field name="preu"/>
                         <field name="km"/>
+			<field name="colorKanban"/>
             <templates>
                 <t t-name="kanban-box">
                     <div t-attf-class="oe_kanban_card #{kanban_color(record.colorKanban.raw_value)}">
