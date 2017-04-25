@@ -12,7 +12,7 @@
 			id="concessionari.action_ventana_cotxe"
 			name="Cotxes"
 			res_model="concessionari.cotxe"
-			view_mode="tree,form,search"
+			view_mode="tree,form,search,kanban"
 		/>
 		<act_window
 	            	id="concessionari.action_ventana_compra"
