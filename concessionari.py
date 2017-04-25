@@ -23,10 +23,7 @@ class concessionari_cotxe(models.Model):
 	nou = fields.Boolean('Nou?')
 	preu = fields.Float('Preu')
 	km = fields.Integer('km')
-	def devolverMatricula(self):
-		return 'Matricula : '+matricula+' Marca : '+marca+ ' Modelo : '+model
-	cotxeConcat = fields.Char('cotxeConcat',compute='devolverMatricula')
-	_rec_name = 'cotxeConcat'
+	_rec_name = 'matricula'
 class concessionari_compra(models.Model):
 	_name = 'concessionari.compra'
 	client = fields.Many2one('concessionari.client','Clientes',ondelete='cascade')

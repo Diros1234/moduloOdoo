@@ -161,11 +161,11 @@
         </field>
 </record>
 <!-- CALENDAR COMPRA -->
-<record id="view_calendar_taller" model="ir.ui.view">
-    <field name="name">view_calendar_compra</field>
+<record id="concessionari.compra_calendar" model="ir.ui.view">
+    <field name="name">concessionari.compra.calendar</field>
     <field name="model">concessionari.compra</field>
     <field name="arch" type="xml">
-        <calendar date_start="data"  date_stop="data">
+        <calendar date_start="data" string="aaa">
 		<field name="data"/>
 		<field name="client"/>
 		<field name="cotxe"/>
@@ -186,7 +186,7 @@
                                         <field name="cognoms"/>
                                         <field name="telefon"/>
                                         <field name="venedor"/>
-				 				</group>
+ 				</group>
                         </sheet>
                 </form>
         </field>
