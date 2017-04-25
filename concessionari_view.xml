@@ -15,10 +15,10 @@
 			view_mode="tree,form,search,graph"
 		/>
 		<act_window
-            id="concessionari.action_ventana_compra"
-            name="Compras"
-            res_model="concessionari.compra"
-            view_mode="tree,form,calendar"
+	            	id="concessionari.action_ventana_compra"
+        	    	name="Compras"
+            		res_model="concessionari.compra"
+            		view_mode="tree,form,calendar"
          />
 		<act_window
 			id="concessionari.action_ventana_client"
@@ -30,7 +30,13 @@
 			id="concessionari.action_ventana_venedor"
             name="Venedors"
             res_model="concessionari.venedor"
-            view_mode="tree,form"
+            		view_mode="tree,form"
+		/>
+		<act_window
+			id="concessionari.action_ventana_revisio"
+			name="Revisions"
+			res_model="concessionari.revisio"
+			view_mode="tree,form,graph"
 		/>
 		<!-- menu padre-->
 		<menuitem name="Concessionari" id="main_menu_taller"/>
@@ -41,14 +47,17 @@
 		<menuitem name="Cotxes" id="menu_cotxe" action="concessionari.action_ventana_cotxe" parent="main_menu_taller"/>
 		<menuitem name="Lista cotxe" id="menu_lista_cotxe" action="concessionari.action_ventana_cotxe" parent="menu_cotxe"/>		
 		<!-- menus compras-->
-        <menuitem name="Compras" id="menu_compra" action="concessionari.action_ventana_compra" parent="main_menu_taller"/>
-        <menuitem name="Lista compras" id="menu_lista_compra" action="concessionari.action_ventana_compra" parent="menu_compra"/>
-        <!-- menus cliente-->
-        <menuitem name="Clientes" id="menu_cliente" action="concessionari.action_ventana_client" parent="main_menu_taller"/>
+       	 	<menuitem name="Compras" id="menu_compra" action="concessionari.action_ventana_compra" parent="main_menu_taller"/>
+        	<menuitem name="Lista compras" id="menu_lista_compra" action="concessionari.action_ventana_compra" parent="menu_compra"/>
+        	<!-- menus cliente-->
+        	<menuitem name="Clientes" id="menu_cliente" action="concessionari.action_ventana_client" parent="main_menu_taller"/>
 		<menuitem name="Lista clients" id="menu_lista_client" action="concessionari.action_ventana_client" parent="menu_cliente"/>
 		<!-- menus venedor-->
 		<menuitem name="Venedors" id="menu_venedor" action="concessionari.action_ventana_venedor" parent="main_menu_taller"/>
 		<menuitem name="Lista venedor" id="menu_lista_venedor" action="concessionari.action_ventana_venedor" parent="menu_venedor"/>
+		<!-- menus revisio -->
+		<menuitem name="Revisions" id="menu_revisio" action="concessionari.action_ventana_revisio" parent="main_menu"/>
+		<menuitem name="Lista revisio" id="menu_lista_revisio" action="concessionari.action_ventana_revisio" parent="menu_revisio"/>
 		<!--Se define la vista formulario de mecanico-->
 		<record id="concessionari.mecanic_form" model="ir.ui.view">
 		<field name="name">concessionari.mecanic.form</field>
@@ -160,7 +169,7 @@
                         </sheet>
                 </form>
         </field>
-</record>
+</record
 <!--TREE COMPRA-->
 <record id="concessionari.compra_tree" model="ir.ui.view">
         <field name="name">concessionari.compra.tree</field>
@@ -200,7 +209,7 @@
                                         <field name="cognoms"/>
                                         <field name="telefon"/>
                                         <field name="venedor"/>
-				 				</group>
+ 				</group>
                         </sheet>
                 </form>
         </field>
