@@ -12,7 +12,7 @@
 			id="concessionari.action_ventana_cotxe"
 			name="Cotxes"
 			res_model="concessionari.cotxe"
-			view_mode="tree,form,search"
+			view_mode="tree,form,search,graph"
 		/>
 		<act_window
             id="concessionari.action_ventana_compra"
@@ -130,6 +130,19 @@
 	</search>
 	</field>
 </record>
+<!-- GRAPH COTXE -->
+<record id="view_graph_taller" model="ir.ui.view">
+    <field name="name">view_graph_concessionari</field>
+    <field name="model">concessionari.cotxe</field>
+    <field name="arch" type="xml">
+        <graph type="pivot">
+        <field name="matricula" type="col" />
+		<field name="client"/>
+		<field name="data_revisio" interval="month"/>
+		<field name="cotxe" type="mesure"/>
+        </graph>
+    </field>
+</record>
 <!--FORM COMPRA-->
 <record id="concessionari.compra_form" model="ir.ui.view">
         <field name="name">concessionari.compra.form</field>
@@ -239,5 +252,38 @@
                 </tree>
         </field>
 </record>
+<!--FORM REVISIO-->
+<record id="concessionari.revisio_form" model="ir.ui.view">
+        <field name="name">concessionari.revisio.form</field>
+        <field name="model">concessionari.revisio</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <form>
+                        <sheet>
+                                <group>
+                                        <field name="data_revisio"/>
+                                        <field name="mecanic"/>
+                                        <field name="cotxe"/>   
+                                </group>
+                        </sheet>
+                </form>
+        </field>
+</record>
+
+<!--TREE REVISIO-->
+<record id="concessionari.revisio_tree" model="ir.ui.view">
+        <field name="name">concessionari.revisio.tree</field>
+        <field name="model">concessionari.revisio</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="data_revisio"/>
+                    <field name="mecanic"/>
+                    <field name="cotxe"/>
+                </tree>
+        </field>
+</record>
+
+
 </data>
 </openerp>
