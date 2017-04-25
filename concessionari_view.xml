@@ -178,7 +178,7 @@
                                         </t>
                                         <t t-if="record.nou.raw_value == false">
                                                 <li>KM: <field name="km"/></li>
-						<li>Ocassió</li>
+						<li>Ocasió</li>
                                         </t>
                                          </ul>
                                     </div>
