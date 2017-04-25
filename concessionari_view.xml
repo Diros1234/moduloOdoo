@@ -12,7 +12,7 @@
 			id="concessionari.action_ventana_cotxe"
 			name="Cotxes"
 			res_model="concessionari.cotxe"
-			view_mode="tree,form,search"
+			view_mode="tree,form,search,kanban"
 		/>
 		<act_window
 	            	id="concessionari.action_ventana_compra"
@@ -139,6 +139,7 @@
 	</search>
 	</field>
 </record>
+
 <!--FORM COMPRA-->
 <record id="concessionari.compra_form" model="ir.ui.view">
         <field name="name">concessionari.compra.form</field>
