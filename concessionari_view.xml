@@ -140,11 +140,11 @@
 	</field>
 </record>
 <!--KANBAN COTXE -->
-<record id="taller.coche_view_kanban" model="ir.ui.view">
+<record id="concessionari.cotxe_kanban" model="ir.ui.view">
         <field name="name">concessionari.cotxe.kanban</field>
         <field name="model">concessionari.cotxe</field>
         <field name="arch" type="xml">
-        	<kanban default_group_by="propietari">
+        	<kanban>
 			<field name="matricula"/>
                         <field name="marca"/>
                         <field name="model"/>

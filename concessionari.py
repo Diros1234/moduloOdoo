@@ -24,11 +24,11 @@ class concessionari_cotxe(models.Model):
 	km = fields.Integer('km')
 	_rec_name = 'matricula'
 	def change_color(self):
-                for record in self:
-                        if record.nou==True:
-                               record.colorKanban=2
-                        elif record.nou==False:
-                               record.colorKanban=4
+		for record in self:
+			if record.nou==True:
+				record.colorKanban=2
+			elif record.nou==False:
+				record.colorKanban=4
         colorKanban=fields.Integer('Color Index',compute='change_color')
 class concessionari_compra(models.Model):
 	_name = 'concessionari.compra'
