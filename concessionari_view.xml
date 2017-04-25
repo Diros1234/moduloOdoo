@@ -139,6 +139,56 @@
 	</search>
 	</field>
 </record>
+<!--KANBAN COTXE -->
+<record id="taller.coche_view_kanban" model="ir.ui.view">
+        <field name="name">concessionari.cotxe.kanban</field>
+        <field name="model">concessionari.cotxe</field>
+        <field name="arch" type="xml">
+        	<kanban default_group_by="propietari">
+			<field name="matricula"/>
+                        <field name="marca"/>
+                        <field name="model"/>
+                        <field name="nou"/>
+                        <field name="preu"/>
+                        <field name="km"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_card #{kanban_color(record.colorKanban.raw_value)}">
+                        <div class="oe_kanban_global_click">
+                        <div class="oe_kanban_content">
+                                <div clas="oe_kanban_bottom_right">
+                                    <a type="open">Open</a>
+                                    <a type="delete">Delete</a>
+                                    <a type="edit">Edit</a>
+                                 </div>
+                         </div>
+                                <div class="oe_kanban_details">
+                                        <strong>
+                                         <field name="matricula"/>
+                                        </strong>
+                                    <div name="tags">
+                                         <ul>
+                                                <li>Matricula: <field name="matricula"/></li>
+                                                <li>Marca: <field name="marca"/></li>
+						<li>Model: <field name="matricula"/></li>
+                                                <li>Preu: <field name="marca"/></li>
+					<t t-if="record.nou.raw_value == true">
+                                                <li>Vehicle nou</li>
+                                        </t>
+                                        <t t-if="record.nou.raw_value == false">
+                                                <li>KM: <field name="km"/></li>
+						<li>Ocassió</li>
+                                        </t>
+                                         </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </t>
+                    </templates>
+        </kanban>
+</field>
+</record>
 <!--FORM COMPRA-->
 <record id="concessionari.compra_form" model="ir.ui.view">
         <field name="name">concessionari.compra.form</field>
