@@ -226,7 +226,7 @@
     <field name="name">concessionari.compra.calendar</field>
     <field name="model">concessionari.compra</field>
     <field name="arch" type="xml">
-        <calendar string="Planning demploi" color="frase" date_start="data" date_stop="data">
+        <calendar mode="month" string="Planning demploi" color="frase" date_start="data" date_stop="data">
        		<field name="data"/>
 		<field name="client"/>
 		<field name="cotxe"/>
